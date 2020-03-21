@@ -1,0 +1,30 @@
+﻿@model ASMWAD.Models.Store
+@{
+    ViewBag.Title = "ShowStore";
+}
+
+<h2>ShowStore</h2>
+
+<table class="table">
+    <tr>
+        <td>Index</td>
+        <td>Image</td>
+        <td>Name</td>
+        <td>Price (VND)</td>
+        <td>Quantity</td>
+        <td>Total Item Price</td>
+    </tr>
+    @foreach (var item in Model.Items.Values)
+    {
+        <tr>
+            <td>@index</td>
+            <td><img src="@item.ProductThumbnail" style="width: 100px"></td>
+            <td>@item.ProductName</td>
+            <td>@item.ProductPrice</td>
+            <td>@item.Quantity</td>
+            <td>@item.TotalItemPrice</td>
+        </tr>
+        index++;
+    }
+</table>
+<strong>Total Price: @Model.TotalPrice (VND)</strong>
